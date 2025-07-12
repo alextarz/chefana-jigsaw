@@ -1,0 +1,208 @@
+/* Base Imports */
+@import 'fonts.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  html {
+    font-family: 'Nunito', system-ui, sans-serif;
+  }
+
+  body {
+    @apply antialiased text-gray-700 font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-gray-800;
+  }
+}
+
+/* Layout Components */
+@layer components {
+  .container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  main {
+    @apply pt-20;
+  }
+}
+
+/* Header & Navigation */
+@layer components {
+  .nav-link {
+    @apply text-gray-600 hover:text-blue-600 transition-colors duration-200;
+  }
+
+  .nav-link.active {
+    @apply text-blue-600 font-medium;
+  }
+
+  .header-nav-link {
+    @apply px-4 py-2 rounded-lg transition-colors duration-200;
+    @apply text-gray-600 hover:text-blue-600;
+  }
+
+  .header-nav-link.active {
+    @apply text-blue-600 font-medium;
+  }
+
+  /* Mobile Menu */
+  #mobile-menu {
+    @apply bg-white border-t border-gray-200 shadow-lg;
+  }
+  
+  #mobile-menu .mobile-dropdown button {
+    @apply text-gray-600 hover:text-blue-600;
+  }
+  
+  #mobile-menu .mobile-dropdown a {
+    @apply text-gray-600 hover:text-blue-600;
+  }
+  
+  #mobile-menu > div > a {
+    @apply text-gray-600 hover:text-blue-600;
+  }
+  
+  #mobile-menu > div > a.btn {
+    @apply bg-blue-600 hover:bg-blue-700 text-white;
+  }
+}
+
+/* Button Components */
+@layer components {
+  .btn {
+    @apply inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 shadow-sm;
+  }
+
+  .btn-outline {
+    @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+  }
+  
+  .header-cta {
+    @apply px-5 py-2 rounded-lg font-medium transition-colors duration-200;
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+}
+
+/* Card Components */
+@layer components {
+  .service-card {
+    @apply bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-300;
+    @apply border border-gray-100;
+  }
+
+  .feature-card {
+    @apply bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md;
+    @apply border border-gray-100;
+  }
+}
+
+/* Form Components */
+@layer components {
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors;
+  }
+
+  .submit-button {
+    @apply w-full px-6 py-3 rounded-lg font-medium transition-colors;
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+}
+
+/* Typography */
+@layer components {
+  .section-title {
+    @apply text-3xl md:text-4xl font-semibold text-gray-800 text-center;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-600 text-center max-w-2xl mx-auto;
+  }
+
+  .hero-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800;
+  }
+
+  .hero-subtitle {
+    @apply text-xl text-gray-600;
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-20;
+  }
+
+  .bg-light {
+    @apply bg-gray-50;
+  }
+}
+
+/* Header */
+header {
+  @apply bg-white shadow-sm border-b border-gray-200;
+}
+
+/* Hero Section */
+.hero {
+  @apply bg-gradient-to-b from-gray-50 to-white;
+}
+
+/* Icons */
+.icon-wrapper {
+  @apply w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center;
+}
+
+.icon-wrapper svg {
+  @apply w-6 h-6 text-blue-600;
+}
+
+/* Stats */
+.stat-number {
+  @apply text-3xl md:text-4xl font-bold text-blue-600;
+}
+
+.stat-label {
+  @apply text-sm text-gray-500 uppercase tracking-wide;
+}
+
+/* FAQ */
+details[open] summary {
+  @apply text-blue-600;
+}
+
+/* Contact Form */
+.contact-form {
+  @apply bg-white rounded-xl shadow-sm p-8 border border-gray-100;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    @apply text-3xl;
+  }
+  
+  .section-title {
+    @apply text-2xl;
+  }
+  
+  .section-padding {
+    @apply py-12;
+  }
+}

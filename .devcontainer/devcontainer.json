@@ -1,0 +1,146 @@
+{
+  "name": "Jigsaw Website Development",
+  "image": "mcr.microsoft.com/devcontainers/php:8.2",
+  
+  // Features to add to the container
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+
+  // Устанавливаем PHP расширения и обновляем npm
+  "postCreateCommand": "chmod +x .devcontainer/post-create.sh .devcontainer/post-start.sh && apt-get update && apt-get install -y php-zip php-gd php-exif php-pdo-mysql php-intl php-fileinfo && .devcontainer/post-create.sh",
+
+  // Set environment variables
+  "containerEnv": {
+    "NODE_ENV": "development"
+  },
+
+  // Forward ports for local development
+  "forwardPorts": [3000, 8000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Frontend Server",
+      "onAutoForward": "notify"
+    },
+    "8000": {
+      "label": "PHP Server",
+      "onAutoForward": "notify"
+    }
+  },
+
+  // Post-start actions
+  "postStartCommand": "bash .devcontainer/post-start.sh",
+
+  // VS Code settings and extensions
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "MehediDracula.php-namespace-resolver",
+        "bradlc.vscode-tailwindcss",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "shufo.vscode-blade-formatter",
+        "onecentlin.laravel-blade",
+        "esbenp.prettier-vscode",
+        "github.github-vscode-theme",
+        "miguelsolorio.fluent-icons",
+        "pkief.material-icon-theme"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll": true
+        },
+        "php.validate.enable": true,
+        "php.suggest.basic": true,
+        "[blade]": {
+          "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+        },
+        "[php]": {
+          "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+        },
+        
+        // Тёмная тема и настройки шрифта
+        "workbench.colorTheme": "GitHub Dark",
+        "workbench.preferredDarkColorTheme": "GitHub Dark",
+        "workbench.iconTheme": "material-icon-theme",
+        "workbench.productIconTheme": "fluent-icons",
+        "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+        "editor.fontSize": 14,
+        "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+        "terminal.integrated.fontSize": 14,
+        
+        // Дополнительные настройки для удобства работы
+        "editor.lineHeight": 1.5,
+        "editor.renderLineHighlight": "all",
+        "editor.cursorBlinking": "smooth",
+        "editor.cursorSmoothCaretAnimation": "on",
+        "editor.minimap.renderCharacters": false,
+        "editor.minimap.showSlider": "always",
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": true,
+        "workbench.list.smoothScrolling": true,
+        "editor.smoothScrolling": true,
+        
+        // Улучшенные настройки цветовой схемы
+        "workbench.colorCustomizations": {
+          "editor.background": "#1A1A1A",
+          "sideBar.background": "#1E1E1E",
+          "terminal.background": "#1A1A1A",
+          "editorLineNumber.foreground": "#444444",
+          "editorLineNumber.activeForeground": "#888888",
+          "editor.selectionBackground": "#3A3D41",
+          "editor.selectionHighlightBackground": "#2A2D31",
+          "editor.findMatchBackground": "#515C6A",
+          "editor.findMatchHighlightBackground": "#3A4150",
+          "statusBar.background": "#151515",
+          "statusBar.foreground": "#CCCCCC",
+          "activityBar.background": "#151515",
+          "titleBar.activeBackground": "#151515",
+          "tab.inactiveBackground": "#1E1E1E",
+          "tab.activeBackground": "#151515"
+        },
+        
+        // Кроссплатформенные настройки терминала
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.defaultProfile.windows": "PowerShell",
+        "terminal.integrated.defaultProfile.osx": "bash",
+        
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+          }
+        },
+        "terminal.integrated.profiles.windows": {
+          "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+          }
+        },
+        "terminal.integrated.profiles.osx": {
+          "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+          }
+        },
+        
+        "terminal.integrated.allowChords": false,
+        "terminal.integrated.commandsToSkipShell": [
+          "workbench.action.toggleSidebarVisibility",
+          "workbench.action.terminal.toggleTerminal"
+        ],
+        "terminal.integrated.gpuAcceleration": "on",
+        "terminal.integrated.scrollback": 10000,
+        "terminal.integrated.shellIntegration.enabled": true,
+        "terminal.integrated.copyOnSelection": true,
+        "terminal.integrated.enableMultiLinePasteWarning": false
+      }
+    }
+  }
+}

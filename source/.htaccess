@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+</IfModule>
+
+Redirect 301 /terms-of-service/ https://admivi.com/terms/
+Redirect 301 /privacy-policy/ https://admivi.com/privacy/
+Redirect 301 /hvac-local-seo-services/ https://admivi.com/services/hvac-local-seo/
+Redirect 301 /seo-the-woodlands-tx/ https://admivi.com/tx/seo-the-woodlands/
