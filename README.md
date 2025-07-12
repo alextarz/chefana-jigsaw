@@ -9,7 +9,7 @@ npm run prod
 
 # Вносим обновления после своей работы
 git add .
-git comment -m "Сообщение что сделали"
+git commit -m "Сообщение что сделали"
 git push
 
 
